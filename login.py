@@ -3,7 +3,7 @@ import json
 import os
 import getpass
 import hashlib
-import userui.py
+import userui
 
 USER_DB = "users.json"
 
@@ -68,7 +68,7 @@ def sign_up():
     }
     with open('users.json', 'w') as file:
         json.dump(users, file, indent=2)
-    Ui(users)
+    Ui(username)
 
 def sign_in():
     if os.path.exists('users.json'):
@@ -92,8 +92,8 @@ def sign_in():
                 print("Too Many Failed Attempts, Account Temporarily Locked")
                 return False
             continue
-    Ui(users)
+    Ui(UName)
 
 
 if __name__ == "__main__":
-    login()
+    prompt_user()
